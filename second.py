@@ -30,3 +30,4 @@ try:
     print(cislo_text(cislo))
 except ValueError:
     print("Zadejte prosím platné číslo.")
+
