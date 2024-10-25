@@ -1,9 +1,32 @@
 def cislo_text(cislo):
-    # funkce zkonvertuje cislo do jeho textove reprezentace
-    # napr: "25" -> "dvacet pět", omezte se na cisla od 0 do 100
-    return "dvacet pět"
+    jednotky = ["nula", "jedna", "dva", "tři", "čtyři", "pět", "šest", "sedm", "osm", "devět"]
+    desítky = ["", "", "dvacet", "třicet", "čtyřicet", "padesát", "šedesát", "sedmdesát", "osmdesát", "devadesát"]
+    zvlastni = ["deset", "jedenáct", "dvanáct", "třináct", "čtrnáct", "patnáct", "šestnáct", "sedmnáct", "osmnáct", "devatenáct"]
 
-if __name__ == "__main__":
-    cislo = input("Zadej číslo: ")
-    text = cislo_text(cislo)
-    print(text)
+    if cislo < 0 or cislo > 100:
+        return "Číslo není v rozsahu (0-100)"
+    
+    if cislo == 100:
+        return "sto"
+    elif cislo < 10:
+        return jednotky[cislo]
+    elif cislo < 20:
+        return zvlastni[cislo - 10]
+    else:
+        des = cislo // 10
+        jed = cislo % 10
+        if jed == 0:
+            return desítky[des]
+        else:
+            return desítky[des] + jednotky[jed]
+
+# Získání vstupu od uživatele
+vstup = input("Zadejte číslo (0-100): ")
+
+# Převod vstupu na celé číslo
+try:
+    cislo = int(vstup)
+    # Výpis textové reprezentace čísla
+    print(cislo_text(cislo))
+except ValueError:
+    print("Zadejte prosím platné číslo.")
