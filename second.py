@@ -1,4 +1,5 @@
 def cislo_text(cislo):
+    cislo = int(cislo)
     jednotky = ["nula", "jedna", "dva", "tři", "čtyři", "pět", "šest", "sedm", "osm", "devět"]
     desítky = ["", "", "dvacet", "třicet", "čtyřicet", "padesát", "šedesát", "sedmdesát", "osmdesát", "devadesát"]
     zvlastni = ["deset", "jedenáct", "dvanáct", "třináct", "čtrnáct", "patnáct", "šestnáct", "sedmnáct", "osmnáct", "devatenáct"]
@@ -19,7 +20,8 @@ def cislo_text(cislo):
             return desítky[des]
         else:
             return desítky[des] + jednotky[jed]
-
+            
+if __name__ == "__main__":
 # Získání vstupu od uživatele
 vstup = input("Zadejte číslo (0-100): ")
 
